@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 	<meta name="description" content="Canvas Graphics" />
+		<meta name="author" content="Isaac Dozier">
+		<meta itemprop="name" content="Solve X">
+		<meta itemprop="image" content="">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta id="theme-color" name="theme-color" content="#000000">
+		<base target="_blank">
+		<!-- custom styles -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+	 	 <!-- Bootstrap CSS -->
+	 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	 	 <!-- Add icon library -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <title></title>
+  </head>
+
+  <body id="body" onload="init()">
+    <div class="container">
+      <!-- Content Goes Here -->
+      <!-- Use Javascript to access 
+           and populate document elements 
+           i.e. document.getElementById() -->
+      <div class="row">
+        <div class="col">
+          <h1 id="title"></h1>
+        </div>
+      </div>
+  
+      <div class="problem" class="row"> 
+        <div class="col">
+                  <span id ="A"> </span> 
+             <span id ="A_sign"> </span> 
+         <span id="X" class="X"> </span>
+                                =
+           <span id ="solution"> </span>
+           <br />
+           <span id ="user_text"></span><br />
+           <span id="score_pass" style="color: green">0</span>/<span id="score_fail" style="color: red">0</span>
+           <br /><br />
+        </div>
+      </div>
+  
+      <div id="input_box" class="row">
+        <div class="col">   
+          <span class="X">X</span> = 
+          <input type="text" autofocus="autofocus" style="width: 30px" id="input" value="">
+          <br /><br />
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col">
+          <span id="input_btn">
+            <button id="btn" onclick="send()">Calculate</button>
+          </span>
+        </div>
+      </div>
+      
+      <div class="row">
+  				<div class="col info">
+  					<p><br />
+  						Developement In-Progress
+  						<br />
+  						Built by <a href="http://isaacdozier.com">Isaac Dozier</a> <br /> 
+  					   <!--Github <a href="https://github.com/isaacdozier/canvas-animations">repo</a><br />-->
+  					   <br />
+  					   <span class="mini-text">
+  					   Works best on Chrome & Firefox
+  					   </span>
+  					</p>
+  				</div>
+  			</div>
+  			
+  			<div class="row">
+  				<div class="col foot">
+  					<p>v0.0.1-beta</p>
+  				</div>
+  			</div>
+    </div>
+    <!-- Link Javascript file -->
+    <script src="src.js"></script>
+  </body>
+
+</html>

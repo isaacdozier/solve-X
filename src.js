@@ -7,6 +7,11 @@ var score = [0,0]
 function init(){
 	generate_formula()
 	
+	document.getElementById('user_text').innerHTML = ''
+	document.getElementById('score_pass').innerHTML = '0'
+	document.getElementById('score_fail').innerHTML = '0'
+	score = [0,0]
+	
 	document.getElementsByTagName("TITLE")[0] = title
 
 	fillContent_by_id('title'    , title)
@@ -84,7 +89,6 @@ function exp_scramble(v){
 function next(){
 	document.getElementById('btn').onclick = send
 	document.getElementById('btn').innerHTML = 'Calculate'
-	clear_it()
 	init()
 }
 
@@ -127,10 +131,6 @@ function update_score(type){
 
 function error(text){
 	console.log('error: ' + text)
-}
-
-function clear_it(){
-	document.getElementById('user_text').innerHTML = ''
 }
 
 function sign(a,b){
@@ -183,4 +183,5 @@ var level_array = ['Level: 1', 'Level: 2', 'Level: 3']
 function update_difficulty(lvl){
 	level = Number(lvl) +1
 	document.getElementById('level').innerHTML = level_array[lvl]
+	init()
 }

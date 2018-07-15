@@ -1,3 +1,40 @@
 .problem{
     font-size: 16px;
 }
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.difficulty-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    overflow: auto;
+    z-index: 1;
+}
+
+.difficulty-content button {
+    color: black;
+    padding: 4px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown button:hover {background-color: #ddd;}
+
+.show {display: block;}

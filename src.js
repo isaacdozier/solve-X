@@ -1,13 +1,11 @@
 var title = 'Solve X'
 
 //pull user input value from <input> element
-var input, A, A_sign, solution
+var input, A, A_sign, solution, level = 1
 var score = [0,0]
 
 function init(){
-	A 		 = Math.round(Math.random()*13)
-	A_sign   = sign(A,solution)
-	solution = Math.round(Math.random()*23)
+	generate_formula()
 	
 	document.getElementsByTagName("TITLE")[0] = title
 
@@ -19,6 +17,24 @@ function init(){
 	
 	document.getElementById('input_box').style.visibility = 'visible'
 	document.getElementById('input').focus()
+}
+
+function generate_formula(){
+	var cycle_cnt = 0
+	var tmp_A 		 = Math.round(Math.random()*(13*level))
+	var tmp_A_sign   = sign(A,solution)
+	var tmp_solution = Math.round(Math.random()*(23*level))
+	var diff = Number(tmp_A) / Number(tmp_solution)
+	if(diff < 1.2 && diff > 0.8 || tmp_A === 0 || tmp_solution === 0){
+		cycle_cnt++
+		generate_formula()
+	}else{
+		A 		 = tmp_A
+		A_sign   = tmp_A_sign
+		solution = tmp_solution
+		console.log(cycle_cnt)
+		cycle_cnt = 0
+	}
 }
 
 //populate the element with output value
@@ -76,7 +92,7 @@ function next(){
 function pass_build(){
 	update_score('pass')
 	fillContent_by_id('X', input)
-	fillContent_by_id('user_text', 'Correct!')
+	fillContent_by_id('user_text', '-> -> Correct! <- <-')
 	document.getElementById('user_text').style.color = 'green'
 	document.getElementById('btn').onclick = next
 	document.getElementById('btn').innerHTML = 'Next'
@@ -118,10 +134,7 @@ function clear_it(){
 }
 
 function sign(a,b){
-	var d
-	if(a>b){d = b}else{d = a}
-		error((a+b)/d)
-	if(((a+b)/d) > 5)
+	if(Math.random()*11>5)
 		return '-'
 	else
 		return '+'
@@ -144,3 +157,30 @@ document.getElementsByTagName("BODY")[0].addEventListener("keyup", function(even
     	next()
   }
 })
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("difficulty").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("difficulty-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+var level_array = ['Level: 1', 'Level: 2', 'Level: 3']
+function update_difficulty(lvl){
+	level = Number(lvl) +1
+	document.getElementById('level').innerHTML = level_array[lvl]
+}

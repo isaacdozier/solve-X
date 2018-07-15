@@ -23,7 +23,7 @@
     <title></title>
   </head>
 
-  <body id="body" onload="init()">
+  <body id="body" onload="init(),	update_difficulty(0)">
     <div class="container">
       <!-- Content Goes Here -->
       <!-- Use Javascript to access 
@@ -32,6 +32,22 @@
       <div class="row">
         <div class="col">
           <h1 id="title"></h1>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <span id="level"></span><br /><br />
+        </div>
+        <div class="col">
+          <div class="difficulty">
+          <button onclick="myFunction()" class="dropbtn">Difficulty</button>
+            <div id="difficulty" class="difficulty-content">
+              <button onclick="update_difficulty('0')">Trainee</button>
+              <button onclick="update_difficulty('1')">Apprentice</button>
+              <button onclick="update_difficulty('2')">Master</button>
+            </div>
+          </div>
         </div>
       </div>
   
@@ -44,7 +60,7 @@
            <span id ="solution"> </span>
            <br />
            <span id ="user_text"></span><br />
-           <span id="score_pass" style="color: green">0</span>/<span id="score_fail" style="color: red">0</span>
+           <span id="score_pass" style="color: green">0</span> / <span id="score_fail" style="color: red">0</span>
            <br /><br />
         </div>
       </div>
@@ -66,6 +82,11 @@
       </div>
       
       <div class="row">
+        
+      </div>
+      
+      <br /><br />
+      <div class="row">
   				<div class="col info">
   					<p><br />
   						Developement In-Progress
@@ -82,7 +103,7 @@
   			
   			<div class="row">
   				<div class="col foot">
-  					<p>v0.0.1-beta</p>
+  					<p>v0.1.0-beta</p>
   				</div>
   			</div>
     </div>

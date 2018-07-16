@@ -1,20 +1,25 @@
-.problem{
-    font-size: 16px;
+.range:hover, .range:focus {
+    background-color: #4e34dbcc;
 }
 
-.dropbtn {
-    min-width: 160px;
-    background-color: #3498DB;
+.range {
+    background-color: #4e34db;
     color: white;
     padding: 4px;
     font-size: 16px;
     border: none;
-    cursor: pointer;
+    cursor: inherit;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+
+
+.problem{
+    font-size: 16px;
 }
+
+
+
+
 
 .dropdown {
     position: relative;

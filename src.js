@@ -1,4 +1,4 @@
-var title = "Generate Prime #'s"
+var title = "Generate <br />Prime #'s"
 var prs = []
 
 //percentage math
@@ -19,6 +19,7 @@ function generate_prime_numbers(){
 	
 	for(var i = limit('a'); i < limit('b'); i++){
 		var s = 0
+		
 		for(var d = 2; d < i; d++){
 			if((i/d)*1000 === Math.ceil(i/d)*1000)
 				s=1
@@ -27,6 +28,9 @@ function generate_prime_numbers(){
 		}
 	}
 	
+	if(limit('a') < 3 )
+		prs.unshift(2)
+		
 	document.getElementById('output').innerHTML = prs.join(', ')
 }
 

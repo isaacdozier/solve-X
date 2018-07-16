@@ -2,15 +2,20 @@ var title = 'Solve X'
 
 //pull user input value from <input> element
 var input, A, A_sign, solution, level = 1
-var score = [0,0]
+var score = [0,0],
+	best_streak = [0,0,0],
+	current_streak = 0
+	
+function load(){
+	document.getElementById('current_streak').innerHTML = 0
+	document.getElementById('best_streak').innerHTML = 0
+	update_difficulty(0)
+}
 
 function init(){
 	generate_formula()
 	
 	document.getElementById('user_text').innerHTML = ''
-	document.getElementById('score_pass').innerHTML = '0'
-	document.getElementById('score_fail').innerHTML = '0'
-	score = [0,0]
 	
 	document.getElementsByTagName("TITLE")[0] = title
 
@@ -95,8 +100,11 @@ function next(){
 
 function pass_build(){
 	update_score('pass')
+	current_streak++
+	update_streak()
+	console.log(current_streak)
 	fillContent_by_id('X', input)
-	fillContent_by_id('user_text', '-> -> Correct! <- <-')
+	fillContent_by_id('user_text', 'Correct!')
 	document.getElementById('user_text').style.color = 'green'
 	document.getElementById('btn').onclick = next
 	document.getElementById('btn').innerHTML = 'Next'
@@ -105,11 +113,25 @@ function pass_build(){
 }
 
 function fail_build(){
+	update_streak()
+	current_streak = 0
+	document.getElementById('current_streak').innerHTML = 0
 	update_score('fail')
 	fillContent_by_id('X', input)
 	fillContent_by_id('user_text', 'Incorrect')
 	document.getElementById('user_text').style.color = 'red'
 	document.getElementById('input').value = null
+}
+
+function update_streak(){
+	if(current_streak === 0){
+		document.getElementById('best_streak').innerHTML = 0
+	}else if(current_streak > best_streak[level-1]){
+		best_streak[level-1] = current_streak
+		document.getElementById('best_streak').innerHTML = current_streak
+	}
+	
+	document.getElementById('current_streak').innerHTML = current_streak
 }
 
 function update_score(type){
@@ -179,9 +201,8 @@ window.onclick = function(event) {
   }
 }
 
-var level_array = ['Level: 1', 'Level: 2', 'Level: 3']
 function update_difficulty(lvl){
 	level = Number(lvl) +1
-	document.getElementById('level').innerHTML = level_array[lvl]
+	document.getElementById('level').innerHTML = level
 	init()
 }

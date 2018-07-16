@@ -23,7 +23,7 @@
     <title></title>
   </head>
 
-  <body id="body" onload="init(),	update_difficulty(0)">
+  <body id="body" onload="init(), load()">
     <div class="container">
       <!-- Content Goes Here -->
       <!-- Use Javascript to access 
@@ -34,55 +34,58 @@
           <h1 id="title"></h1>
         </div>
       </div>
-      
+  
       <div class="row">
         <div class="col">
-          <span id="level"></span><br /><br />
+          <div class="problem" class="row"> 
+            <div class="col">
+                      <span id ="A"> </span> 
+                 <span id ="A_sign"> </span> 
+             <span id="X" class="X"> </span>
+                                    =
+               <span id ="solution"> </span>
+               <br />
+               <span id ="user_text"></span><br />
+               <span id="score_pass" style="color: green">0</span> / <span id="score_fail" style="color: red">0</span>
+               <br /><br />
+            </div>
+          </div>
+      
+          <div id="input_box" class="row">
+            <div class="col">   
+              <span class="X">X</span> = 
+              <input type="text" autofocus="autofocus" style="width: 30px" id="input" value="">
+              <br /><br />
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col">
+              <span id="input_btn">
+                <button id="btn" onclick="send()">Calculate</button>
+              </span>
+            </div>
+          </div>
         </div>
+
         <div class="col">
           <div class="difficulty">
-          <button onclick="myFunction()" class="dropbtn">Difficulty</button>
+          <!--<input type="checkbox" id="no=negative" checked> No Negative #'s<br>-->
+          <button onclick="myFunction()" class="dropbtn">Difficulty: <span id="level"></span></button>
             <div id="difficulty" class="difficulty-content">
               <button onclick="update_difficulty('0')">Trainee</button>
               <button onclick="update_difficulty('1')">Apprentice</button>
               <button onclick="update_difficulty('2')">Master</button>
             </div>
           </div>
+          
+          <br />
+          <div>
+            Best Streak: <span id="best_streak"></span>
+            <br />
+            Current Streak: <span id="current_streak"></span>
+          </div>
         </div>
-      </div>
-  
-      <div class="problem" class="row"> 
-        <div class="col">
-                  <span id ="A"> </span> 
-             <span id ="A_sign"> </span> 
-         <span id="X" class="X"> </span>
-                                =
-           <span id ="solution"> </span>
-           <br />
-           <span id ="user_text"></span><br />
-           <span id="score_pass" style="color: green">0</span> / <span id="score_fail" style="color: red">0</span>
-           <br /><br />
-        </div>
-      </div>
-  
-      <div id="input_box" class="row">
-        <div class="col">   
-          <span class="X">X</span> = 
-          <input type="text" autofocus="autofocus" style="width: 30px" id="input" value="">
-          <br /><br />
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="col">
-          <span id="input_btn">
-            <button id="btn" onclick="send()">Calculate</button>
-          </span>
-        </div>
-      </div>
-      
-      <div class="row">
-        
       </div>
       
       <br /><br />
@@ -103,7 +106,7 @@
   			
   			<div class="row">
   				<div class="col foot">
-  					<p>v1.0.0-beta</p>
+  					<p>v1.1.0-beta</p>
   				</div>
   			</div>
     </div>

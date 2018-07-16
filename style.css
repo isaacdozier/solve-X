@@ -3,6 +3,7 @@
 }
 
 .dropbtn {
+    min-width: 160px;
     background-color: #3498DB;
     color: white;
     padding: 4px;
@@ -29,6 +30,7 @@
 }
 
 .difficulty-content button {
+    min-width: 160px;
     color: black;
     padding: 4px 16px;
     text-decoration: none;

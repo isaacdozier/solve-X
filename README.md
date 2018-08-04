@@ -1,1 +1,1 @@
-    generates a list of prime numbers
+  kids algebra app

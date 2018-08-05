@@ -32,8 +32,11 @@ function init(){
 function generate_formula(){
 	var cycle_cnt = 0
 	var tmp_A 		 = Math.round(Math.random()*(13*level))
-	var tmp_A_sign   = sign(A,solution)
+	
 	var tmp_solution = Math.round(Math.random()*(23*level))
+	
+	var tmp_A_sign   = sign(tmp_A,tmp_solution)
+	
 	var diff = Number(tmp_A) / Number(tmp_solution)
 	if(diff < 1.2 && diff > 0.8 || tmp_A === 0 || tmp_solution === 0){
 		cycle_cnt++
@@ -156,7 +159,7 @@ function error(text){
 }
 
 function sign(a,b){
-	if(Math.random()*11>5)
+	if(a>b)
 		return '-'
 	else
 		return '+'

@@ -40,3 +40,14 @@
 .dropdown button:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+.highlight{
+    color: yellow;
+    background-color: grey;
+    font-size: 28px;
+}
+
+.game{
+    border: 1px solid #c5c5b5;
+    background-color: #ffffeb;
+}

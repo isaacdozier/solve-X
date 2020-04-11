@@ -179,7 +179,7 @@ document.getElementsByTagName("BODY")[0].addEventListener("keyup", function(even
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+function difficulty() {
     document.getElementById("difficulty").classList.toggle("show");
 }
 

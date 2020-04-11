@@ -21,6 +21,8 @@
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icon.png" />
 		<!-- custom styles -->
 		<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="http://isaacdozier.com/assets/themes/bootstrap/resources/bootstrap/css/app.css">
+
 	 	 <!-- Bootstrap CSS -->
 	 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	 	 <!-- Add icon library -->
@@ -33,11 +35,9 @@
 
   <body id="body" onload="init(), load()">
     <div class="container">
-      <div class="row">
+      <div class="row header">
         <div class="col">
-          <br />
           <h1>Algebra - <span id="title"></span></h1>
-          <br />
         </div>
       </div>
   
@@ -45,10 +45,10 @@
         <div class="col">
           <br />
           <div class="problem" class="row"> 
-            <div class="col-lg">
-                      <span id ="A"> </span> 
-                 <span id ="A_sign"> </span> 
-             <span id="X" class="X"> </span>
+            <div class="col-lg" style="text-align: right">
+              <span id ="A"> </span> 
+              <span id ="A_sign"> </span> 
+              <span id ="X" class="X"> </span>
                                     =
                <span id ="solution"> </span>
                <br />
@@ -78,7 +78,7 @@
         
           <br />
           <!--<input type="checkbox" id="no=negative" checked> No Negative #'s<br>-->
-          <button onclick="myFunction()" class="dropbtn">Difficulty: <span id="level">1</span></button>
+          <button onclick="difficulty()" class="dropbtn">Difficulty: <span id="level">1</span></button>
             <div id="difficulty" class="difficulty-content">
               <button onclick="update_difficulty('0')">1</button>
               <button onclick="update_difficulty('1')">2</button>
@@ -91,8 +91,8 @@
       </div>
      
       
-      <div class="row">
-  				<div class="col info">
+      <div class="row footer">
+  				<div class="col">
   					<p>
   						   Developement In-Progress
   						 <br />

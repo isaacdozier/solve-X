@@ -1,16 +1,15 @@
 var title = 'Solve X'
 
 //pull user input value from <input> element
-var input, A, A_sign, solution, level = 1
+var input, 
+	A, 
+	A_sign, 
+	solution, 
+	level = 1
+
 var score = [0,0],
-	best_streak = [0,0,0],
+	best_streak = [0,0,0,0],
 	current_streak = 0
-	
-function load(){
-	document.getElementById('current_streak').innerHTML = 0
-	document.getElementById('best_streak').innerHTML = 0
-	update_difficulty(0)
-}
 
 function init(){
 	generate_formula()
@@ -25,8 +24,9 @@ function init(){
 	fillContent_by_id('A_sign'   , A_sign)
 	fillContent_by_id('solution' , solution)
 	
-	document.getElementById('input_box').style.visibility = 'visible'
 	document.getElementById('input').focus()
+
+	console.log(best_streak)
 }
 
 function generate_formula(){
@@ -68,8 +68,8 @@ function send(){
 
 function user_error(text){
 	document.getElementById('user_text').style.color = 'blue'
-	document.getElementById('user_text').innerHTML = text
-	document.getElementById('input').value = null
+	document.getElementById('user_text').innerHTML   = text
+	document.getElementById('input').value 			 = null
 }
 
 function fillContent_by_id(id,content){
@@ -88,20 +88,14 @@ function exp_scramble(v){
 	return v.split('X =')
 }
 
-function next(){
-	document.getElementById('btn').onclick = send
-	document.getElementById('btn').innerHTML = 'Calculate'
-	init()
-}
-
 
 function pass_build(){
 	score[0]=score[0]+1
 	fillContent_by_id('score_pass', score[0])
-	fillContent_by_id('score_fail', score[1])
 
 	current_streak++
 	update_streak()
+
 	document.getElementById('input').value = null
 	init()
 
@@ -117,26 +111,32 @@ function pass_build(){
 
 function fail_build(){
 	score[1]=score[1]+1
-	fillContent_by_id('score_pass', score[0])
 	fillContent_by_id('score_fail', score[1])
-
+	
 	current_streak = 0
 	update_streak()
-	document.getElementById('current_streak').innerHTML = 0
-	
-	fillContent_by_id('user_text', 'Incorrect')
-	document.getElementById('user_text').style.color = 'red'
+
 	document.getElementById('input').value = null
+
+	document.getElementById('user_text').innerHTML = 'Incorrect'
+	document.getElementById('user_text').style.color = 'red'
 }
 
 function update_streak(){
-	if(current_streak > best_streak[level-1]){
-		best_streak[level-1] = current_streak
-		document.getElementById('best_streak').innerHTML = current_streak
+	if(current_streak > best_streak[best_lvl()]){
+		best_streak[best_lvl()] = current_streak
+		document.getElementById('best_streak').innerHTML  = current_streak
 	}
-	
+
 	document.getElementById('current_streak').innerHTML = current_streak
 }
+
+function best_lvl(){
+ 	if(level === 1){return 0}
+ 	if(level === 10){return 1}
+ 	if(level === 100){return 2}
+ 	if(level === 1000){return 3}
+ }
 
 function error(text){
 	console.log('error: ' + text)
@@ -162,8 +162,6 @@ document.getElementsByTagName("BODY")[0].addEventListener("keyup", function(even
   if (event.keyCode === 13) {
 	if(document.getElementById("btn").innerHTML === 'Calculate')
     	send()
-    else
-    	next()
   }
 })
 
@@ -189,7 +187,10 @@ window.onclick = function(event) {
 }
 
 function update_difficulty(lvl){
-	level = Number(lvl) +1
+	level = Number(lvl)
 	document.getElementById('level').innerHTML = level
+	current_streak = 0
+	document.getElementById('current_streak').innerHTML  = current_streak
+	document.getElementById('best_streak').innerHTML     = best_streak[best_lvl()]
 	init()
 }

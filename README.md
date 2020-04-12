@@ -1,1 +1,1 @@
-  kids algebra app
+solve for X algebra app

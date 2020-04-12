@@ -96,56 +96,46 @@ function next(){
 
 
 function pass_build(){
-	update_score('pass')
+	score[0]=score[0]+1
+	fillContent_by_id('score_pass', score[0])
+	fillContent_by_id('score_fail', score[1])
+
 	current_streak++
 	update_streak()
-	console.log(current_streak)
+	document.getElementById('input').value = null
+	init()
+
+	/*console.log(current_streak)
 	fillContent_by_id('X', input)
 	fillContent_by_id('user_text', 'Correct!')
 	document.getElementById('user_text').style.color = 'green'
 	document.getElementById('btn').onclick = next
 	document.getElementById('btn').innerHTML = 'Next'
 	document.getElementById('input').value = null
-	document.getElementById('input_box').style.visibility = 'hidden'
+	document.getElementById('input_box').style.visibility = 'hidden'*/
 }
 
 function fail_build(){
-	update_streak()
+	score[1]=score[1]+1
+	fillContent_by_id('score_pass', score[0])
+	fillContent_by_id('score_fail', score[1])
+
 	current_streak = 0
+	update_streak()
 	document.getElementById('current_streak').innerHTML = 0
-	update_score('fail')
-	fillContent_by_id('X', input)
+	
 	fillContent_by_id('user_text', 'Incorrect')
 	document.getElementById('user_text').style.color = 'red'
 	document.getElementById('input').value = null
 }
 
 function update_streak(){
-	if(current_streak === 0){
-		document.getElementById('best_streak').innerHTML = 0
-	}else if(current_streak > best_streak[level-1]){
+	if(current_streak > best_streak[level-1]){
 		best_streak[level-1] = current_streak
 		document.getElementById('best_streak').innerHTML = current_streak
 	}
 	
 	document.getElementById('current_streak').innerHTML = current_streak
-}
-
-function update_score(type){
-	if(!type){
-		score[1]=score[1]+1
-		fillContent_by_id('score_' + type, score[1])
-	}else if(type === 'fail'){
-		score[1]=score[1]+1
-		fillContent_by_id('score_pass', score[0])
-		fillContent_by_id('score_fail', score[1])
-	}else if(type === 'pass'){
-		score[0]=score[0]+1
-		fillContent_by_id('score_pass', score[0])
-		fillContent_by_id('score_fail', score[1])
-	} else {
-		error('check parameters -> update_score')
-	}
 }
 
 function error(text){

@@ -13,8 +13,7 @@ function init(){
 	generate_formula()
 	
 	document.getElementById('user_text').innerHTML = ''
-
-	fillContent_by_id('title'    , title)
+	
 	fillContent_by_id('X'        , 'X')
 	fillContent_by_id('A'        , A)
 	fillContent_by_id('A_sign'   , A_sign)

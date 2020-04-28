@@ -1,5 +1,3 @@
-var title = 'Solve X'
-
 //pull user input value from <input> element
 var input, 
 	A, 
@@ -15,8 +13,6 @@ function init(){
 	generate_formula()
 	
 	document.getElementById('user_text').innerHTML = ''
-	
-	document.getElementsByTagName("TITLE")[0] = title
 
 	fillContent_by_id('title'    , title)
 	fillContent_by_id('X'        , 'X')

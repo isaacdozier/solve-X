@@ -131,6 +131,7 @@ function best_lvl(){
  	if(level === 10){return 1}
  	if(level === 100){return 2}
  	if(level === 1000){return 3}
+	if(level === 10000){return 4}
  }
 
 function error(text){
